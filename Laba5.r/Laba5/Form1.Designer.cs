@@ -70,6 +70,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.CRead = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.r7 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -107,6 +108,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Panic = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -505,6 +508,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.button4);
             this.panel6.Controls.Add(this.button2);
             this.panel6.Controls.Add(this.r7);
             this.panel6.Controls.Add(this.label23);
@@ -529,6 +533,16 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(208, 305);
             this.panel6.TabIndex = 16;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(148, 231);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(55, 20);
+            this.button4.TabIndex = 39;
+            this.button4.Text = "Долг";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // button2
             // 
@@ -867,11 +881,31 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(466, 390);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(208, 103);
+            this.richTextBox2.TabIndex = 33;
+            this.richTextBox2.Text = "";
+            // 
+            // Panic
+            // 
+            this.Panic.Location = new System.Drawing.Point(539, 25);
+            this.Panic.Name = "Panic";
+            this.Panic.Size = new System.Drawing.Size(121, 34);
+            this.Panic.TabIndex = 34;
+            this.Panic.Text = "Panic button";
+            this.Panic.UseVisualStyleBackColor = true;
+            this.Panic.Click += new System.EventHandler(this.Panic_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 505);
+            this.Controls.Add(this.Panic);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
@@ -980,6 +1014,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Panic;
     }
 }
 

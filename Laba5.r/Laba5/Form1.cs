@@ -152,7 +152,7 @@ namespace StorP
         {
             if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "")
             {
-                CurLib.add_reader(Convert.ToInt16(r1.Text), r2.Text, new Address(r4.Text, r5.Text, Convert.ToInt16(r7.Text), Convert.ToInt16(r6.Text)), Convert.ToInt16(r3.Text));
+                CurLib.add_reader(Convert.ToInt16(r1.Text), r2.Text, new Address(r4.Text, r5.Text, Convert.ToInt16(r7.Text), Convert.ToInt16(r6.Text)), Convert.ToInt32(r3.Text));
                 CRead.Items.Add(r1.Text);
                 CRead.SelectedItem = r1.Text;
 
@@ -301,7 +301,7 @@ namespace StorP
         {
             if (r1.Text != "")
             {
-                CurLib.Miss(Convert.ToInt16(r1.Text));
+                CurLib.Miss(Convert.ToInt16(r1.Text), richTextBox2);
                 CurLib.fill(CBook, CRead, CIssue);
                 if (CIssue.Items.Count != 0)
                     CIssue.SelectedItem = CIssue.Items[0];
@@ -311,6 +311,39 @@ namespace StorP
                     DelI.Enabled = false;
                 }
             }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            if (r1.Text != "")
+            {
+                CurLib.Ret(Convert.ToInt16(r1.Text), richTextBox2);
+                CurLib.fill(CBook, CRead, CIssue);
+                if (CIssue.Items.Count != 0)
+                    CIssue.SelectedItem = CIssue.Items[0];
+                else
+                {
+                    OkI.Enabled = false;
+                    DelI.Enabled = false;
+                }
+            }
+        }
+
+        private void Panic_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Лень настигла тебя", "АГААААА", MessageBoxButtons.OK);
+            r1.Text = "9";
+            r2.Text = "имя";
+            r3.Text = "1234567";
+            r4.Text = "город";
+            r5.Text = "улица";
+            r6.Text = "12";
+            r7.Text = "123";
+            textBox10.Text = "9";
+            textBox9.Text = "1";
+            textBox11.Text = "1";
+            
         }
 
         private void button3_Click_1(object sender, EventArgs e)

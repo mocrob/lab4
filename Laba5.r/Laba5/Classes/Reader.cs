@@ -19,6 +19,7 @@ namespace Laba5.Classes
         Address adr;
         int phone;
         public int paid;
+        public int exem;
         public Reader()
         {
             number = 7;

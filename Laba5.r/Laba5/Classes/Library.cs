@@ -86,10 +86,12 @@ namespace Laba5.Classes
         {
             string date1 = idate.Value.ToString("dd.MM.yyyy");
             issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
+            search_reader(number).exem += ex;
         }
         public void add_issue(Issue iss)
         {
             issues.Add(iss);
+
         }
         public Issue search_issue(int number)
         {
@@ -160,15 +162,29 @@ namespace Laba5.Classes
                     rt.AppendText("Нет должников \n");
         }
 
-        public void Miss(int num)
+        public void Miss(int num, RichTextBox rt1)
         {
+            
             //delete_book(search_book(search_issue(num).BookN).number);
-            if (issues != null && search_issue(num) != null)
+            if (issues != null && search_issue(num) != null && search_reader(num) != null && readers != null)
             {
-               // search_reader(num).paid += search_book(search_issue(num).BookN).price;
-                delete_issue(num);
+                rt1.Clear();
+                search_reader(num).paid += search_book(search_issue(num).BookN).price * search_issue(num).ex;
+               // delete_issue(num);
+                rt1.AppendText(search_reader(num).Name + "   Долг: " + search_reader(num).paid + " рублей. \n");
             }
             
+        }
+        public void Ret(int num, RichTextBox rt1)
+        {
+            if (books != null && search_book(search_issue(num).BookN) != null && search_reader(num) != null && readers != null)
+            {
+                rt1.Clear();
+                search_reader(num).paid = 0;
+                search_book(search_issue(num).BookN).inuse -= search_reader(num).exem;
+                search_book(search_issue(num).BookN).quantity += search_reader(num).exem;
+                delete_issue(num);
+            }
         }
 
         public Library Merge(Library lib)
