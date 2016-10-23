@@ -15,7 +15,6 @@ namespace StorP
     {
         List<Library> libraries = new List<Library>();
         Library CurLib, NewLib;
-        bool notFind = false;
 
         public Form1()
         {
@@ -54,45 +53,57 @@ namespace StorP
             if (CBook.Items.Count != 0)
             {
                 CBook.SelectedIndex = 0;
-                CurLib.printBooks(Convert.ToInt16(CBook.SelectedItem.ToString()), textBox7, b1, b2, b3, b4, b5, b6);            
+                try { CurLib.printBooks(Convert.ToInt16(CBook.SelectedItem.ToString()), textBox7, b1, b2, b3, b4, b5, b6); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
             }
 
             if (CIssue.Items.Count != 0)
             {
                 CIssue.SelectedIndex = 0;
-                CurLib.printIssues(Convert.ToInt16(CIssue.SelectedItem.ToString()), textBox10, textBox9, textBox11, dateTimePicker2, dateTimePicker3);
+                try { CurLib.printIssues(Convert.ToInt16(CIssue.SelectedItem.ToString()), textBox10, textBox9, textBox11, dateTimePicker2, dateTimePicker3); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
             }
             if (CRead.Items.Count != 0)
             {
                 CRead.SelectedIndex = 0;
-                CurLib.printReaders(Convert.ToInt16(CRead.SelectedItem.ToString()), r4, r5, r6, r7, r1, r2, r3);
+                try { CurLib.printReaders(Convert.ToInt16(CRead.SelectedItem.ToString()), r4, r5, r6, r7, r1, r2, r3); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
             }
            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (b1.Text != "" && b2.Text != "" && b3.Text != "" && b4.Text != "" && b5.Text != "" && b6.Text != "" && textBox7.Text != "" && CurLib.search_book(Convert.ToInt16(textBox7.Text)) == null)
+            try
             {
-                CurLib.add_book(b1.Text, b2.Text, Convert.ToInt16(b3.Text), Convert.ToInt16(b4.Text),
-                Convert.ToInt16(b6.Text), Convert.ToInt16(b5.Text), Convert.ToInt16(textBox7.Text));
-                CurLib.fill(CBook, CRead, CIssue);
-                CBook.SelectedItem = b1.Text;
 
-                DelB.Enabled = true;
-            
-            }
+                if (b1.Text != "" && b2.Text != "" && b3.Text != "" && b4.Text != "" && b5.Text != "" && b6.Text != "" && textBox7.Text != "" && CurLib.search_book(Convert.ToInt16(textBox7.Text)) == null)
+            {
+                
+                    CurLib.add_book(b1.Text, b2.Text, Convert.ToInt16(b3.Text), Convert.ToInt16(b4.Text),
+                    Convert.ToInt16(b6.Text), Convert.ToInt16(b5.Text), Convert.ToInt16(textBox7.Text));
+                    CurLib.fill(CBook, CRead, CIssue);
+                    CBook.SelectedItem = b1.Text;
+
+                    DelB.Enabled = true;
+
+
+                }
             else
             {
-                MessageBox.Show("Ошибка добавлении книги", "ОШИБКА", MessageBoxButtons.OK);
+                    MessageBox.Show("Ошибка добавлении книги", "ОШИБКА", MessageBoxButtons.OK);
+                }
             }
-
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
         }
 
         private void CSales_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurLib.printIssues(Convert.ToInt16(CIssue.SelectedItem.ToString()), textBox10, textBox9, textBox11, dateTimePicker2, dateTimePicker3);
-           
+            try
+            {
+                CurLib.printIssues(Convert.ToInt16(CIssue.SelectedItem.ToString()), textBox10, textBox9, textBox11, dateTimePicker2, dateTimePicker3);
+            }
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -102,15 +113,19 @@ namespace StorP
                 
                 if (comboBox1.FindString(textBox1.Text) == -1)
                 {
-                    libraries.Add(new Library(
-                    textBox1.Text,
-                    new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
-                        Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text)));
-                    comboBox1.Items.Add(textBox1.Text);
-                    comboBox1.SelectedItem = textBox1.Text;
+                    try
+                    {
+                        libraries.Add(new Library(
+                        textBox1.Text,
+                        new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
+                            Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text)));
+                        comboBox1.Items.Add(textBox1.Text);
+                        comboBox1.SelectedItem = textBox1.Text;
 
-                    ChLib.Enabled = true;
-                    delLib.Enabled = true;
+                        ChLib.Enabled = true;
+                        delLib.Enabled = true;
+                    }
+                    catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
                 }
                 else
                 {
@@ -125,67 +140,87 @@ namespace StorP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "" && CurLib.search_issue(Convert.ToInt16(textBox10.Text)) == null && CurLib.search_reader(Convert.ToInt16(textBox10.Text)) != null && CurLib.search_book(Convert.ToInt16(textBox9.Text)) != null && Convert.ToInt16(textBox11.Text) <= CurLib.search_book(Convert.ToInt16(textBox9.Text)).quantity)
+            try
             {
-                CurLib.add_issue(Convert.ToInt16(textBox10.Text), Convert.ToInt16(textBox9.Text), Convert.ToInt16(textBox11.Text), dateTimePicker3);
+                if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "" && CurLib.search_issue(Convert.ToInt16(textBox10.Text)) == null && CurLib.search_reader(Convert.ToInt16(textBox10.Text)) != null && CurLib.search_book(Convert.ToInt16(textBox9.Text)) != null && Convert.ToInt16(textBox11.Text) <= CurLib.search_book(Convert.ToInt16(textBox9.Text)).quantity)
+            {
+                
+                    CurLib.add_issue(Convert.ToInt16(textBox10.Text), Convert.ToInt16(textBox9.Text), Convert.ToInt16(textBox11.Text), dateTimePicker3);
 
-            CIssue.Items.Add(textBox10.Text);
-            CIssue.SelectedItem = textBox10.Text;
+                    CIssue.Items.Add(textBox10.Text);
+                    CIssue.SelectedItem = textBox10.Text;
 
-            Book star = CurLib.search_book(Convert.ToInt16(textBox9.Text));
-            star.quantity -= Convert.ToInt16(textBox11.Text);
-            star.inuse += Convert.ToInt16(textBox11.Text);
+                    Book star = CurLib.search_book(Convert.ToInt16(textBox9.Text));
+                    star.quantity -= Convert.ToInt16(textBox11.Text);
+                    star.inuse += Convert.ToInt16(textBox11.Text);
 
-            OkI.Enabled = true;
-            DelI.Enabled = true;
-            }
+                    OkI.Enabled = true;
+                    DelI.Enabled = true;
+
+
+                }
             else
             {
-                MessageBox.Show("Ошибка добавления выдачи", "ОШИБКА", MessageBoxButtons.OK);
+                    MessageBox.Show("Ошибка добавления выдачи", "ОШИБКА", MessageBoxButtons.OK);
+                }
             }
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
         }
 
         private void CCash_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurLib.printBooks(Convert.ToInt16(CBook.SelectedItem.ToString()), textBox7, b1, b2, b3, b4, b5, b6);//123456
-           
+            try { CurLib.printBooks(Convert.ToInt16(CBook.SelectedItem.ToString()), textBox7, b1, b2, b3, b4, b5, b6); }
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }//123456
+
         }
 
         private void CShip_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            CurLib.printReaders(Convert.ToInt16(CRead.SelectedItem.ToString()), r4, r5, r6, r7, r1, r2, r3);//4567123
-            
+            try { CurLib.printReaders(Convert.ToInt16(CRead.SelectedItem.ToString()), r4, r5, r6, r7, r1, r2, r3); }//4567123
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "" && CurLib.search_reader(Convert.ToInt16(r1.Text)) == null)
+            try
             {
-                CurLib.add_reader(Convert.ToInt16(r1.Text), r2.Text, new Address(r4.Text, r5.Text, Convert.ToInt16(r7.Text), Convert.ToInt16(r6.Text)), Convert.ToInt32(r3.Text));
-                CRead.Items.Add(r1.Text);
-                CRead.SelectedItem = r1.Text;
+                if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "" && CurLib.search_reader(Convert.ToInt16(r1.Text)) == null)
+            {
+                
+                    CurLib.add_reader(Convert.ToInt16(r1.Text), r2.Text, new Address(r4.Text, r5.Text, Convert.ToInt16(r7.Text), Convert.ToInt16(r6.Text)), Convert.ToInt32(r3.Text));
+                    CRead.Items.Add(r1.Text);
+                    CRead.SelectedItem = r1.Text;
 
-                DelR.Enabled = true;
-            }
+                    DelR.Enabled = true;
+
+
+                }
             else
             {
-                MessageBox.Show("Ошибка добавления читателя","ОШИБКА", MessageBoxButtons.OK);
+                    MessageBox.Show("Ошибка добавления читателя", "ОШИБКА", MessageBoxButtons.OK);
+                }
             }
+            catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
             {
-                libraries.Remove(CurLib);
-            CurLib = new Library(
-                textBox1.Text,
-                new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
-                    Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text));
+                try
+                {
+                    libraries.Remove(CurLib);
+                    CurLib = new Library(
+                        textBox1.Text,
+                        new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
+                            Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text));
 
-            libraries.Add(CurLib);
-            RefillCombo();
-            comboBox1.SelectedItem = textBox1.Text;
+                    libraries.Add(CurLib);
+                    RefillCombo();
+                    comboBox1.SelectedItem = textBox1.Text;
+                }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
             }
             else
             {
@@ -227,7 +262,8 @@ namespace StorP
         {
             if (b1.Text != "" && b2.Text != "" && b3.Text != "" && b4.Text != "" && b5.Text != "" && b6.Text != "" && textBox7.Text != "")
             {
-                CurLib.delete_book(Convert.ToInt16(CBook.SelectedItem.ToString()));
+                try { CurLib.delete_book(Convert.ToInt16(CBook.SelectedItem.ToString())); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
                 CurLib.fill(CBook, CRead, CIssue);
                 if (CBook.Items.Count != 0)
                     CBook.SelectedItem = CBook.Items[0];
@@ -247,8 +283,9 @@ namespace StorP
         {
             if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "")
             {
-                CurLib.delete_reader(Convert.ToInt16(CRead.SelectedItem.ToString()));
-            CurLib.fill(CBook, CRead, CIssue);
+                try { CurLib.delete_reader(Convert.ToInt16(CRead.SelectedItem.ToString())); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
+                CurLib.fill(CBook, CRead, CIssue);
             if (CRead.Items.Count != 0)
                 CRead.SelectedItem = CRead.Items[0];
             else
@@ -266,20 +303,24 @@ namespace StorP
         {
             if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "")
             {
-                CurLib.delete_issue(Convert.ToInt16(CIssue.SelectedItem.ToString()));
-            CurLib.fill(CBook, CRead, CIssue);
+                try
+                {
+                    CurLib.delete_issue(Convert.ToInt16(CIssue.SelectedItem.ToString()));
+                    CurLib.fill(CBook, CRead, CIssue);
 
-            Book star = CurLib.search_book(Convert.ToInt16(textBox9.Text));
-            star.quantity += Convert.ToInt16(textBox11.Text);
-            star.inuse -= Convert.ToInt16(textBox11.Text);
-
-            if (CIssue.Items.Count != 0)
+                    Book star = CurLib.search_book(Convert.ToInt16(textBox9.Text));
+                    star.quantity += Convert.ToInt16(textBox11.Text);
+                    star.inuse -= Convert.ToInt16(textBox11.Text);
+                }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
+                if (CIssue.Items.Count != 0)
                 CIssue.SelectedItem = CIssue.Items[0];
             else
             {
                 OkI.Enabled = false;
                 DelI.Enabled = false;
             }
+
             }
             else
             {
@@ -291,9 +332,13 @@ namespace StorP
         {
             if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "")
             {
-                CurLib.search_issue(Convert.ToInt16(textBox10.Text)).Set(Convert.ToInt16(textBox9.Text),Convert.ToInt16(textBox11.Text));
-            CurLib.fill(CBook, CRead, CIssue);
-            CIssue.SelectedItem = textBox9.Text;
+                try
+                {
+                    CurLib.search_issue(Convert.ToInt16(textBox10.Text)).Set(Convert.ToInt16(textBox9.Text), Convert.ToInt16(textBox11.Text));
+                    CurLib.fill(CBook, CRead, CIssue);
+                    CIssue.SelectedItem = textBox9.Text;
+                }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
             }
             else
             {
@@ -310,7 +355,8 @@ namespace StorP
         {
             if (r1.Text != "")
             {
-                CurLib.Miss(Convert.ToInt16(r1.Text), richTextBox2);
+                try { CurLib.Miss(Convert.ToInt16(r1.Text), richTextBox2); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
                 CurLib.fill(CBook, CRead, CIssue);
                 if (CIssue.Items.Count != 0)
                     CIssue.SelectedItem = CIssue.Items[0];
@@ -326,7 +372,8 @@ namespace StorP
         {
             if (r1.Text != "")
             {
-                CurLib.Ret(Convert.ToInt16(r1.Text), richTextBox2);
+                try { CurLib.Ret(Convert.ToInt16(r1.Text), richTextBox2); }
+                catch { MessageBox.Show("Ошибка", "ОШИБКА", MessageBoxButtons.OK); }
                 CurLib.fill(CBook, CRead, CIssue);
                 if (CIssue.Items.Count != 0)
                     CIssue.SelectedItem = CIssue.Items[0];
