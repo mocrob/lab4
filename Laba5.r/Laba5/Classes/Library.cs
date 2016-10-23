@@ -84,9 +84,12 @@ namespace Laba5.Classes
         //}
         public void add_issue(int number, int num, int ex, DateTimePicker idate)
         {
-            string date1 = idate.Value.ToString("dd.MM.yyyy");
-            issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
-            search_reader(number).exem += ex;
+            
+                string date1 = idate.Value.ToString("dd.MM.yyyy");
+                issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
+                search_reader(number).exem += ex;
+                search_reader(number).BN = num;
+            
         }
         public void add_issue(Issue iss)
         {
@@ -132,13 +135,22 @@ namespace Laba5.Classes
             foreach (Book s in books)
                 CBook.Items.Add(s.number.ToString());
 
+            if (books.Count != 0)
+                CBook.SelectedItem = CBook.Items[0];
+
             CRead.Items.Clear();
             foreach (Reader s in readers)
                 CRead.Items.Add(s.number.ToString());
 
+            if (readers.Count != 0)
+                CRead.SelectedItem = CRead.Items[0];
+
             CIssue.Items.Clear();
             foreach (Issue s in issues)
                 CIssue.Items.Add(s.r_number.ToString());
+
+            if (issues.Count != 0)
+                CIssue.SelectedItem = CIssue.Items[0];
         }
 
         public void Print(TextBox _name, TextBox _phone, TextBox c, TextBox s, TextBox h, TextBox a)
@@ -170,20 +182,21 @@ namespace Laba5.Classes
             {
                 rt1.Clear();
                 search_reader(num).paid += search_book(search_issue(num).BookN).price * search_issue(num).ex;
-               // delete_issue(num);
+                delete_issue(num);
                 rt1.AppendText(search_reader(num).Name + "   Долг: " + search_reader(num).paid + " рублей. \n");
             }
             
         }
         public void Ret(int num, RichTextBox rt1)
         {
-            if (books != null && search_book(search_issue(num).BookN) != null && search_reader(num) != null && readers != null)
+            if (books != null && search_book(search_reader(num).BN) != null && search_reader(num) != null && readers != null)
             {
                 rt1.Clear();
                 search_reader(num).paid = 0;
-                search_book(search_issue(num).BookN).inuse -= search_reader(num).exem;
-                search_book(search_issue(num).BookN).quantity += search_reader(num).exem;
-                delete_issue(num);
+                search_book(search_reader(num).BN).inuse -= search_reader(num).exem;
+                search_book(search_reader(num).BN).quantity += search_reader(num).exem;
+                search_reader(num).exem = 0;
+                //delete_issue(num);
             }
         }
 
@@ -208,5 +221,6 @@ namespace Laba5.Classes
 
             return l;
         }
+        
     }
 }

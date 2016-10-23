@@ -15,6 +15,7 @@ namespace StorP
     {
         List<Library> libraries = new List<Library>();
         Library CurLib, NewLib;
+        bool notFind = false;
 
         public Form1()
         {
@@ -71,7 +72,7 @@ namespace StorP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (b1.Text != "" && b2.Text != "" && b3.Text != "" && b4.Text != "" && b5.Text != "" && b6.Text != "" && textBox7.Text != "")
+            if (b1.Text != "" && b2.Text != "" && b3.Text != "" && b4.Text != "" && b5.Text != "" && b6.Text != "" && textBox7.Text != "" && CurLib.search_book(Convert.ToInt16(textBox7.Text)) == null)
             {
                 CurLib.add_book(b1.Text, b2.Text, Convert.ToInt16(b3.Text), Convert.ToInt16(b4.Text),
                 Convert.ToInt16(b6.Text), Convert.ToInt16(b5.Text), Convert.ToInt16(textBox7.Text));
@@ -83,7 +84,7 @@ namespace StorP
             }
             else
             {
-                MessageBox.Show("Заполнены не все данные о книге", "ОШИБКА", MessageBoxButtons.OK);
+                MessageBox.Show("Ошибка добавлении книги", "ОШИБКА", MessageBoxButtons.OK);
             }
 
         }
@@ -98,15 +99,23 @@ namespace StorP
         {
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox5.Text != "" && textBox6.Text != "")
             {
-                libraries.Add(new Library(
-                textBox1.Text,
-                new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox5.Text),
-                    Convert.ToInt16(textBox6.Text)), Convert.ToInt16(textBox2.Text)));
-                comboBox1.Items.Add(textBox1.Text);
-                comboBox1.SelectedItem = textBox1.Text;
+                
+                if (comboBox1.FindString(textBox1.Text) == -1)
+                {
+                    libraries.Add(new Library(
+                    textBox1.Text,
+                    new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
+                        Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text)));
+                    comboBox1.Items.Add(textBox1.Text);
+                    comboBox1.SelectedItem = textBox1.Text;
 
-                ChLib.Enabled = true;
-                delLib.Enabled = true;
+                    ChLib.Enabled = true;
+                    delLib.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Библиотека с таким названием уже существует", "ОШИБКА", MessageBoxButtons.OK);
+                }
             }
             else
             {
@@ -116,7 +125,7 @@ namespace StorP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "")
+            if (textBox10.Text != "" && textBox11.Text != "" && textBox9.Text != "" && CurLib.search_issue(Convert.ToInt16(textBox10.Text)) == null && CurLib.search_reader(Convert.ToInt16(textBox10.Text)) != null && CurLib.search_book(Convert.ToInt16(textBox9.Text)) != null && Convert.ToInt16(textBox11.Text) <= CurLib.search_book(Convert.ToInt16(textBox9.Text)).quantity)
             {
                 CurLib.add_issue(Convert.ToInt16(textBox10.Text), Convert.ToInt16(textBox9.Text), Convert.ToInt16(textBox11.Text), dateTimePicker3);
 
@@ -132,7 +141,7 @@ namespace StorP
             }
             else
             {
-                MessageBox.Show("Заполнены не все данные о выдаче", "ОШИБКА", MessageBoxButtons.OK);
+                MessageBox.Show("Ошибка добавления выдачи", "ОШИБКА", MessageBoxButtons.OK);
             }
         }
 
@@ -150,7 +159,7 @@ namespace StorP
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "")
+            if (r1.Text != "" && r2.Text != "" && r3.Text != "" && r4.Text != "" && r5.Text != "" && r6.Text != "" && r7.Text != "" && CurLib.search_reader(Convert.ToInt16(r1.Text)) == null)
             {
                 CurLib.add_reader(Convert.ToInt16(r1.Text), r2.Text, new Address(r4.Text, r5.Text, Convert.ToInt16(r7.Text), Convert.ToInt16(r6.Text)), Convert.ToInt32(r3.Text));
                 CRead.Items.Add(r1.Text);
@@ -160,7 +169,7 @@ namespace StorP
             }
             else
             {
-                MessageBox.Show("Заполнены не все данные о читателе","ОШИБКА", MessageBoxButtons.OK);
+                MessageBox.Show("Ошибка добавления читателя","ОШИБКА", MessageBoxButtons.OK);
             }
         }
 
@@ -171,8 +180,8 @@ namespace StorP
                 libraries.Remove(CurLib);
             CurLib = new Library(
                 textBox1.Text,
-                new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox5.Text),
-                    Convert.ToInt16(textBox6.Text)), Convert.ToInt16(textBox2.Text));
+                new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox6.Text),
+                    Convert.ToInt16(textBox5.Text)), Convert.ToInt32(textBox2.Text));
 
             libraries.Add(CurLib);
             RefillCombo();
@@ -346,11 +355,30 @@ namespace StorP
             
         }
 
+        private void num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 8) //Если символ, введенный с клавы - не цифра (IsDigit), 
+            {
+                e.Handled = true;// то событие не обрабатывается. ch!=8 (8 - это Backspace) 
+            }
+        }
+
         private void button3_Click_1(object sender, EventArgs e)
         {
-            libraries.Add(NewLib.Merge(libraries.Find(delegate(Library s)
-            { return s.name == (comboBox1.Items[0].ToString());})));
-            RefillCombo();
+            if (comboBox1.Items.Count == 2)
+            {
+                libraries.Add(NewLib.Merge(libraries.Find(delegate (Library s)
+                { return s.name == (comboBox1.Items[0].ToString()); })));
+                RefillCombo();
+            }
+            else
+            {
+                MessageBox.Show("Неверное количество библиотек", "ОШИБКА", MessageBoxButtons.OK);
+            }
+
         }
 
 

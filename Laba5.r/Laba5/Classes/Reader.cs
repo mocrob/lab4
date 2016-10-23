@@ -18,8 +18,9 @@ namespace Laba5.Classes
         public int number; /*номер билета*/
         Address adr;
         int phone;
-        public int paid;
-        public int exem;
+        public int paid;// эти строчки
+        public int exem;//             для потери
+        public int BN; //                         книги
         public Reader()
         {
             number = 7;
