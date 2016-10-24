@@ -12,7 +12,7 @@ namespace Laba5.Classes
         string name; /*ФИО*/
         public string Name
         {
-            get { return name; } 
+            get { return name; }
         }
 
         public int number; /*номер билета*/

@@ -42,7 +42,7 @@ namespace Laba5.Classes
 
         public void add_book(string name, string author, int year, int price, int ou, int quantity, int number)
         {
-            books.Add(new Book(number, year, price, quantity, ou , name, author));
+            books.Add(new Book(number, year, price, quantity, ou, name, author));
         }
         public void add_book(Book b)
         {
@@ -50,15 +50,15 @@ namespace Laba5.Classes
         }
         public Book search_book(int number)
         {
-            return books.Find(delegate(Book b) { return b.number == number; });
+            return books.Find(delegate (Book b) { return b.number == number; });
         }
         public Book search_book(Book b)
         {
-            return books.Find(delegate(Book b1) { return b == b1; });
+            return books.Find(delegate (Book b1) { return b == b1; });
         }
         public void delete_book(int number)
         {
-            books.RemoveAll(delegate(Book b) { return b.number == number; });
+            books.RemoveAll(delegate (Book b) { return b.number == number; });
         }
 
         public void add_reader(int num, string name, Address adr, int phone)
@@ -71,11 +71,11 @@ namespace Laba5.Classes
         }
         public Reader search_reader(int number)
         {
-            return readers.Find(delegate(Reader b) { return b.number == number; });
+            return readers.Find(delegate (Reader b) { return b.number == number; });
         }
         public void delete_reader(int number)
         {
-            readers.RemoveAll(delegate(Reader r) { return r.number == number; });
+            readers.RemoveAll(delegate (Reader r) { return r.number == number; });
         }
 
         //public void add_issue(int number, int num, int ex)
@@ -84,12 +84,12 @@ namespace Laba5.Classes
         //}
         public void add_issue(int number, int num, int ex, DateTimePicker idate)
         {
-            
-                string date1 = idate.Value.ToString("dd.MM.yyyy");
-                issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
-                search_reader(number).exem += ex;
-                search_reader(number).BN = num;
-            
+
+            string date1 = idate.Value.ToString("dd.MM.yyyy");
+            issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
+            search_reader(number).exem += ex;
+            search_reader(number).BN = num;
+
         }
         public void add_issue(Issue iss)
         {
@@ -98,16 +98,16 @@ namespace Laba5.Classes
         }
         public Issue search_issue(int number)
         {
-            return issues.Find(delegate(Issue b) { return b.r_number == number; });
+            return issues.Find(delegate (Issue b) { return b.r_number == number; });
         }
         public void change_issue(int number, int num, int ex)
         {
-            Issue i = issues.Find(delegate(Issue iss) { return iss.r_number == number; });
+            Issue i = issues.Find(delegate (Issue iss) { return iss.r_number == number; });
             i.Set(num, ex);
         }
         public void delete_issue(int num)
         {
-            issues.RemoveAll(delegate(Issue i) { return i.r_number == num; });
+            issues.RemoveAll(delegate (Issue i) { return i.r_number == num; });
         }
 
         public void printBooks(int number, TextBox _number, TextBox _name, TextBox _author, TextBox _year, TextBox _price,
@@ -168,7 +168,7 @@ namespace Laba5.Classes
                 {
                     foreach (Reader r in readers)
                         if (r.number == iss.r_number)
-                            rt.AppendText(r.Name + "   Долг: " + iss.Outdated().Days*iss.ex + " рублей. \n"); // возможно с минусом iss.Outdated().Days
+                            rt.AppendText(r.Name + "   Долг: " + iss.Outdated().Days * iss.ex + " рублей. \n"); // возможно с минусом iss.Outdated().Days
                 }
                 else
                     rt.AppendText("Нет должников \n");
@@ -176,7 +176,7 @@ namespace Laba5.Classes
 
         public void Miss(int num, RichTextBox rt1)
         {
-            
+
             //delete_book(search_book(search_issue(num).BookN).number);
             if (issues != null && search_issue(num) != null && search_reader(num) != null && readers != null)
             {
@@ -185,7 +185,7 @@ namespace Laba5.Classes
                 delete_issue(num);
                 rt1.AppendText(search_reader(num).Name + "   Долг: " + search_reader(num).paid + " рублей. \n");
             }
-            
+
         }
         public void Ret(int num, RichTextBox rt1)
         {
@@ -221,6 +221,7 @@ namespace Laba5.Classes
 
             return l;
         }
-        
+
     }
 }
+

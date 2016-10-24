@@ -33,7 +33,7 @@ C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.exe
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.pdb
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\bin\Debug\Laba5.exe
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\bin\Debug\Laba5.pdb
-C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\StorP.Form1.resources
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.Properties.Resources.resources
 C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Lab_5.csproj.GenerateResource.Cache
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache

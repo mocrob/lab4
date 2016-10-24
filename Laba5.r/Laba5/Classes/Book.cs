@@ -15,9 +15,9 @@ namespace Laba5.Classes
         string name;
         int year;
 
-       public int price; /*необходимо будет учитывать, что последние два символа - ком/цент/итд*/
-       public int quantity; /*количество*/
-       public int inuse; /*количество выданых*/
+        public int price; /*необходимо будет учитывать, что последние два символа - ком/цент/итд*/
+        public int quantity; /*количество*/
+        public int inuse; /*количество выданых*/
 
         public Book()
         {
