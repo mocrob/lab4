@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.Properties.Resources.resources
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\bin\Debug\Laba5.exe
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\bin\Debug\Laba5.pdb
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\StorP.Form1.resources
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.exe
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.pdb

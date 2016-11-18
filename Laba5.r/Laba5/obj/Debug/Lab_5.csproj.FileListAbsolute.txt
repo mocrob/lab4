@@ -1,0 +1,39 @@
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.exe
+C:\Users\User\Desktop\Учеба\Программирование\Laba5_to_chto_nado\Laba5\Laba5\obj\Debug\Laba5.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\Laba5.exe
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\Laba5.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\bin\Debug\Laba5.exe
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\bin\Debug\Laba5.pdb
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\StorP.Form1.resources
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\Laba5.Properties.Resources.resources
+C:\Users\User\Documents\Visual Studio 2012\Projects\Андрей\Laba5\Laba5\obj\Debug\Lab_5.csproj.GenerateResource.Cache
+C:\Users\rbt1\Desktop\Laba5\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\Laba5.exe
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\Laba5.pdb
+C:\Users\rbt1\Desktop\Laba5\Laba5\bin\Debug\Laba5.exe
+C:\Users\rbt1\Desktop\Laba5\Laba5\bin\Debug\Laba5.pdb
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\StorP.Form1.resources
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\Laba5.Properties.Resources.resources
+C:\Users\rbt1\Desktop\Laba5\Laba5\obj\Debug\Lab_5.csproj.GenerateResource.Cache
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\Laba5.exe
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\Laba5.pdb
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\bin\Debug\Laba5.exe
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\bin\Debug\Laba5.pdb
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\StorP.Form1.resources
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\Laba5.Properties.Resources.resources
+C:\Users\rbt1\Desktop\Laba5.r\Laba5\obj\Debug\Lab_5.csproj.GenerateResource.Cache
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\bin\Debug\Laba5.exe.config
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.exe
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.pdb
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\bin\Debug\Laba5.exe
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\bin\Debug\Laba5.pdb
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\StorP.Form1.resources
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Laba5.Properties.Resources.resources
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Lab_5.csproj.GenerateResource.Cache
+C:\Users\Михаил\Downloads\Laba5.r\Laba5\obj\Debug\Lab_5.csprojResolveAssemblyReference.cache
