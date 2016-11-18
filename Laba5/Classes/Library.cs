@@ -13,7 +13,7 @@ namespace Laba5.Classes
         Address lib_adr;
         int phone;
 
-        List<Book> books = new List<Book>();
+        List<Book> books = new List<Book>();  // создаем список объектов книга
         List<Reader> readers = new List<Reader>();
         List<Issue> issues = new List<Issue>();
 

@@ -89,7 +89,7 @@ namespace StorP
             }
             else
             {
-                MessageBox.Show("Ошибка добавлении книги", "ОШИБКА", MessageBoxButtons.OK);
+                MessageBox.Show("Ошибка добавлении книги=))))", "ОШИБКА", MessageBoxButtons.OK);
             }
 
         }
