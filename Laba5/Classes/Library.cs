@@ -80,7 +80,7 @@ namespace Laba5.Classes
 
         //public void add_issue(int number, int num, int ex)
         //{
-        //    issues.Add(new Issue(number, num, DateTime.Today, ex, DateTime.Today.AddDays(90)));
+        //    issues.Add(new Issue(number, num, DateTime.Today, ex, DateTime.Today.AddDays(90)));  
         //}
         public void add_issue(int number, int num, int ex, DateTimePicker idate)
         {
