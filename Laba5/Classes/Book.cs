@@ -15,9 +15,9 @@ namespace Laba5.Classes
         string name;
         int year;
 
-        int price; /*необходимо будет учитывать, что последние два символа - ком/цент/итд*/
-        int quantity; /*количество*/
-        int inuse; /*количество выданых*/
+        public int price; /*необходимо будет учитывать, что последние два символа - ком/цент/итд*/
+        public int quantity; /*количество*/
+        public int inuse; /*количество выданых*/
 
         public Book()
         {
@@ -49,20 +49,20 @@ namespace Laba5.Classes
             price = b.price;
         }
 
-        public int DecQuantity(int d)
-        {
-            if (quantity > 0)
-            {
-                quantity -= d;
-                return 1;
-            }
-            else
-                return 0;
-        }
-        public void IncQuantity(int d)
-        {
-            quantity += d;
-        }
+        //public int DecQuantity(int d)
+        //{
+        //    if (quantity > 0)
+        //    {
+        //        quantity -= d;
+        //        return 1;
+        //    }
+        //    else
+        //        return 0;
+        //}
+        //public void IncQuantity(int d)
+        //{
+        //    quantity += d;
+        //}
 
         public void Print(TextBox _number, TextBox _name, TextBox _author, TextBox _year, TextBox _price,
             TextBox _quantity, TextBox _inuse)

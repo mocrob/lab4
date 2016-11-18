@@ -12,13 +12,15 @@ namespace Laba5.Classes
         string name; /*ФИО*/
         public string Name
         {
-            get { return name; } 
+            get { return name; }
         }
 
         public int number; /*номер билета*/
         Address adr;
         int phone;
-
+        public int paid;// эти строчки
+        public int exem;//             для потери
+        public int BN; //                         книги
         public Reader()
         {
             number = 7;
@@ -46,7 +48,7 @@ namespace Laba5.Classes
 
         public void Print(TextBox b, TextBox s, TextBox h, TextBox a, TextBox num, TextBox nam, TextBox ph)
         {
-            adr.Print(b, s, h, a);
+            adr.Print(b, s, h, a);  // печать адреса с параметрами город, улица, дом, квартира
             num.Text = number.ToString();
             nam.Text = name.ToString();
             ph.Text = phone.ToString();

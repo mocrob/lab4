@@ -15,16 +15,16 @@ namespace Laba5.Classes
         public int BookN
         { get { return b_number; } }
         DateTime out_date/*[3]*/;
-        int ex;
+        public int ex;
         DateTime in_date/*[3]*/;
 
         public Issue(int RN, int BN, DateTime odate, int x, DateTime idate)
         {
-            r_number = RN;
-            b_number = BN;
-            out_date = odate;
-            ex = x;
-            in_date = idate;
+            r_number = RN;   // номер читателя
+            b_number = BN;   // номер книги
+            out_date = odate;  // дата выдачи
+            ex = x;  // количество экземпляров
+            in_date = idate; // дата возврата
         }
 
         public void Set(int BN, int x)
@@ -43,7 +43,7 @@ namespace Laba5.Classes
             i.Text = in_date.ToString();
         }
 
-        public TimeSpan Outdated()
+        public TimeSpan Outdated()  // просрочка
         {
             return DateTime.Today.Subtract(in_date);
         }

@@ -42,7 +42,7 @@ namespace Laba5.Classes
 
         public void add_book(string name, string author, int year, int price, int ou, int quantity, int number)
         {
-            books.Add(new Book(number, year, price, quantity, ou , name, author));
+            books.Add(new Book(number, year, price, quantity, ou, name, author));
         }
         public void add_book(Book b)
         {
@@ -50,15 +50,15 @@ namespace Laba5.Classes
         }
         public Book search_book(int number)
         {
-            return books.Find(delegate(Book b) { return b.number == number; });
+            return books.Find(delegate (Book b) { return b.number == number; });
         }
         public Book search_book(Book b)
         {
-            return books.Find(delegate(Book b1) { return b == b1; });
+            return books.Find(delegate (Book b1) { return b == b1; });
         }
         public void delete_book(int number)
         {
-            books.RemoveAll(delegate(Book b) { return b.number == number; });
+            books.RemoveAll(delegate (Book b) { return b.number == number; });
         }
 
         public void add_reader(int num, string name, Address adr, int phone)
@@ -71,33 +71,43 @@ namespace Laba5.Classes
         }
         public Reader search_reader(int number)
         {
-            return readers.Find(delegate(Reader b) { return b.number == number; });
+            return readers.Find(delegate (Reader b) { return b.number == number; });
         }
         public void delete_reader(int number)
         {
-            readers.RemoveAll(delegate(Reader r) { return r.number == number; });
+            readers.RemoveAll(delegate (Reader r) { return r.number == number; });
         }
 
-        public void add_issue(int number, int num, int ex)
+        //public void add_issue(int number, int num, int ex)
+        //{
+        //    issues.Add(new Issue(number, num, DateTime.Today, ex, DateTime.Today.AddDays(90)));
+        //}
+        public void add_issue(int number, int num, int ex, DateTimePicker idate)
         {
-            issues.Add(new Issue(number, num, DateTime.Today, ex, DateTime.Today.AddDays(90)));
+
+            string date1 = idate.Value.ToString("dd.MM.yyyy");
+            issues.Add(new Issue(number, num, DateTime.Today, ex, Convert.ToDateTime(date1)));
+            search_reader(number).exem += ex;
+            search_reader(number).BN = num;
+
         }
         public void add_issue(Issue iss)
         {
             issues.Add(iss);
+
         }
         public Issue search_issue(int number)
         {
-            return issues.Find(delegate(Issue b) { return b.r_number == number; });
+            return issues.Find(delegate (Issue b) { return b.r_number == number; });
         }
         public void change_issue(int number, int num, int ex)
         {
-            Issue i = issues.Find(delegate(Issue iss) { return iss.r_number == number; });
+            Issue i = issues.Find(delegate (Issue iss) { return iss.r_number == number; });
             i.Set(num, ex);
         }
         public void delete_issue(int num)
         {
-            issues.RemoveAll(delegate(Issue i) { return i.r_number == num; });
+            issues.RemoveAll(delegate (Issue i) { return i.r_number == num; });
         }
 
         public void printBooks(int number, TextBox _number, TextBox _name, TextBox _author, TextBox _year, TextBox _price,
@@ -110,7 +120,8 @@ namespace Laba5.Classes
         public void printIssues(int number, TextBox rn, TextBox bn, TextBox x, DateTimePicker o, DateTimePicker i)
         {
             Issue iss = search_issue(number);
-            iss.Print(rn, bn, x, o, i);
+            if (iss != null)
+                iss.Print(rn, bn, x, o, i);
         }
         public void printReaders(int number, TextBox b, TextBox s, TextBox h, TextBox a, TextBox num, TextBox nam, TextBox ph)
         {
@@ -124,13 +135,22 @@ namespace Laba5.Classes
             foreach (Book s in books)
                 CBook.Items.Add(s.number.ToString());
 
+            if (books.Count != 0)
+                CBook.SelectedItem = CBook.Items[0];
+
             CRead.Items.Clear();
             foreach (Reader s in readers)
                 CRead.Items.Add(s.number.ToString());
 
+            if (readers.Count != 0)
+                CRead.SelectedItem = CRead.Items[0];
+
             CIssue.Items.Clear();
             foreach (Issue s in issues)
                 CIssue.Items.Add(s.r_number.ToString());
+
+            if (issues.Count != 0)
+                CIssue.SelectedItem = CIssue.Items[0];
         }
 
         public void Print(TextBox _name, TextBox _phone, TextBox c, TextBox s, TextBox h, TextBox a)
@@ -148,16 +168,36 @@ namespace Laba5.Classes
                 {
                     foreach (Reader r in readers)
                         if (r.number == iss.r_number)
-                            rt.AppendText(r.Name + "   Долг: " + -iss.Outdated().Days + " рублей. \n");
+                            rt.AppendText(r.Name + "   Долг: " + iss.Outdated().Days * iss.ex + " рублей. \n"); // возможно с минусом iss.Outdated().Days
                 }
                 else
-                    rt.AppendText("Нет должников");
+                    rt.AppendText("Нет должников \n");
         }
 
-        public void Miss(int num)
+        public void Miss(int num, RichTextBox rt1)
         {
-            delete_book(search_book(search_issue(num).BookN).number);
-            delete_issue(num);
+
+            //delete_book(search_book(search_issue(num).BookN).number);
+            if (issues != null && search_issue(num) != null && search_reader(num) != null && readers != null)
+            {
+                rt1.Clear();
+                search_reader(num).paid += search_book(search_issue(num).BookN).price * search_issue(num).ex;
+                delete_issue(num);
+                rt1.AppendText(search_reader(num).Name + "   Долг: " + search_reader(num).paid + " рублей. \n");
+            }
+
+        }
+        public void Ret(int num, RichTextBox rt1)
+        {
+            if (books != null && search_book(search_reader(num).BN) != null && search_reader(num) != null && readers != null)
+            {
+                rt1.Clear();
+                search_reader(num).paid = 0;
+                search_book(search_reader(num).BN).inuse -= search_reader(num).exem;
+                search_book(search_reader(num).BN).quantity += search_reader(num).exem;
+                search_reader(num).exem = 0;
+                //delete_issue(num);
+            }
         }
 
         public Library Merge(Library lib)
@@ -181,5 +221,7 @@ namespace Laba5.Classes
 
             return l;
         }
+
     }
 }
+

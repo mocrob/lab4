@@ -70,6 +70,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.CRead = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.r7 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -107,6 +108,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Panic = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -194,9 +197,11 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(12, 158);
+            this.textBox6.MaxLength = 9;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 12;
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label10
             // 
@@ -210,9 +215,11 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(12, 132);
+            this.textBox5.MaxLength = 9;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 10;
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label9
             // 
@@ -258,9 +265,11 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 54);
+            this.textBox2.MaxLength = 9;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label6
             // 
@@ -326,9 +335,11 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(10, 193);
+            this.textBox7.MaxLength = 9;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 30;
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // b7
             // 
@@ -342,9 +353,11 @@
             // b6
             // 
             this.b6.Location = new System.Drawing.Point(10, 167);
+            this.b6.MaxLength = 9;
             this.b6.Name = "b6";
             this.b6.Size = new System.Drawing.Size(100, 20);
             this.b6.TabIndex = 28;
+            this.b6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label33
             // 
@@ -358,9 +371,11 @@
             // b5
             // 
             this.b5.Location = new System.Drawing.Point(10, 141);
+            this.b5.MaxLength = 9;
             this.b5.Name = "b5";
             this.b5.Size = new System.Drawing.Size(100, 20);
             this.b5.TabIndex = 26;
+            this.b5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label34
             // 
@@ -374,9 +389,11 @@
             // b4
             // 
             this.b4.Location = new System.Drawing.Point(10, 115);
+            this.b4.MaxLength = 9;
             this.b4.Name = "b4";
             this.b4.Size = new System.Drawing.Size(100, 20);
             this.b4.TabIndex = 24;
+            this.b4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label2
             // 
@@ -390,9 +407,11 @@
             // b3
             // 
             this.b3.Location = new System.Drawing.Point(10, 89);
+            this.b3.MaxLength = 9;
             this.b3.Name = "b3";
             this.b3.Size = new System.Drawing.Size(100, 20);
             this.b3.TabIndex = 22;
+            this.b3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label3
             // 
@@ -505,6 +524,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.button4);
             this.panel6.Controls.Add(this.button2);
             this.panel6.Controls.Add(this.r7);
             this.panel6.Controls.Add(this.label23);
@@ -530,6 +550,16 @@
             this.panel6.Size = new System.Drawing.Size(208, 305);
             this.panel6.TabIndex = 16;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(148, 231);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(55, 20);
+            this.button4.TabIndex = 39;
+            this.button4.Text = "Долг";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(9, 257);
@@ -543,9 +573,11 @@
             // r7
             // 
             this.r7.Location = new System.Drawing.Point(9, 187);
+            this.r7.MaxLength = 9;
             this.r7.Name = "r7";
             this.r7.Size = new System.Drawing.Size(100, 20);
             this.r7.TabIndex = 37;
+            this.r7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label23
             // 
@@ -559,9 +591,11 @@
             // r6
             // 
             this.r6.Location = new System.Drawing.Point(9, 161);
+            this.r6.MaxLength = 9;
             this.r6.Name = "r6";
             this.r6.Size = new System.Drawing.Size(100, 20);
             this.r6.TabIndex = 35;
+            this.r6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label24
             // 
@@ -606,6 +640,7 @@
             // 
             // DelR
             // 
+            this.DelR.Enabled = false;
             this.DelR.Location = new System.Drawing.Point(82, 231);
             this.DelR.Margin = new System.Windows.Forms.Padding(2);
             this.DelR.Name = "DelR";
@@ -629,18 +664,20 @@
             // r3
             // 
             this.r3.Location = new System.Drawing.Point(9, 83);
+            this.r3.MaxLength = 9;
             this.r3.Name = "r3";
             this.r3.Size = new System.Drawing.Size(100, 20);
             this.r3.TabIndex = 14;
+            this.r3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(111, 85);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(52, 13);
+            this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 13;
-            this.label22.Text = "Телефон";
+            this.label22.Text = "Телефон ";
             // 
             // r2
             // 
@@ -661,9 +698,11 @@
             // r1
             // 
             this.r1.Location = new System.Drawing.Point(9, 34);
+            this.r1.MaxLength = 9;
             this.r1.Name = "r1";
             this.r1.Size = new System.Drawing.Size(100, 20);
             this.r1.TabIndex = 10;
+            this.r1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label20
             // 
@@ -750,9 +789,11 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(9, 110);
+            this.textBox11.MaxLength = 9;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 14;
+            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label18
             // 
@@ -782,9 +823,11 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(9, 86);
+            this.textBox9.MaxLength = 9;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 8;
+            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label11
             // 
@@ -798,9 +841,11 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(9, 63);
+            this.textBox10.MaxLength = 9;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 6;
+            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_KeyPress);
             // 
             // label15
             // 
@@ -867,11 +912,32 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(466, 390);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(208, 103);
+            this.richTextBox2.TabIndex = 33;
+            this.richTextBox2.Text = "";
+            // 
+            // Panic
+            // 
+            this.Panic.Location = new System.Drawing.Point(539, 25);
+            this.Panic.Name = "Panic";
+            this.Panic.Size = new System.Drawing.Size(121, 34);
+            this.Panic.TabIndex = 34;
+            this.Panic.Text = "Panic button";
+            this.Panic.UseVisualStyleBackColor = true;
+            this.Panic.Click += new System.EventHandler(this.Panic_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 505);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(913, 505);
+            this.Controls.Add(this.Panic);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
@@ -883,6 +949,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Библиотека, проба";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -980,6 +1048,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Panic;
     }
 }
 
