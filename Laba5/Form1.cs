@@ -14,6 +14,7 @@ namespace StorP
     public partial class Form1 : Form
     {
         List<Library> libraries = new List<Library>();
+        LibStack libStack;
         Library CurLib, NewLib;
 
         public Form1()
@@ -33,6 +34,11 @@ namespace StorP
             libraries.Add(NewLib);
             // Заполнить ещё библиотеки
 
+            libStack = new LibStack(CurLib);
+
+            CurLib = new BookShop("BookyShop", new Address("Best City", "New Street", 10, 64), 908, 100);
+            libraries.Add(CurLib);
+            libStack = libStack.push(CurLib);
 
             RefillCombo();
         }
@@ -48,7 +54,7 @@ namespace StorP
             CurLib.fill(CBook, CRead, CIssue);
 
 
-            CurLib.Print(textBox1, textBox2, textBox3, textBox4, textBox5, textBox6);
+            CurLib.Print(textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox8);
 
             if (CBook.Items.Count != 0)
             {
@@ -385,6 +391,37 @@ namespace StorP
             }
         }
 
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            CurLib = libStack.pop();
+            if (CurLib != null)
+            {
+                panel1.Enabled = true;
+                panel2.Enabled = true;
+                panel3.Enabled = true;
+                panel6.Enabled = true;
+                CurLib.fill(CBook, CRead, CIssue);
+
+                CurLib.Print(textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox8);
+
+                if (CBook.Items.Count != 0)
+                {
+                    CBook.SelectedIndex = 0;
+                    CurLib.printBooks(Convert.ToInt16(CBook.SelectedItem.ToString()), textBox7, b1, b2, b3, b4, b5, b6);
+                }
+
+                if (CIssue.Items.Count != 0)
+                {
+                    CIssue.SelectedIndex = 0;
+                    CurLib.printIssues(Convert.ToInt16(CIssue.SelectedItem.ToString()), textBox10, textBox9, textBox11, dateTimePicker2, dateTimePicker3);
+                }
+                if (CRead.Items.Count != 0)
+                {
+                    CRead.SelectedIndex = 0;
+                    CurLib.printReaders(Convert.ToInt16(CRead.SelectedItem.ToString()), r1, r2, r3, r4, r5, r6, r7);
+                }
+            }
+        }
 
         private void button3_Click_1(object sender, EventArgs e)
         {

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
-    class Reader
+    public class Reader
     {
         string name; /*ФИО*/
         public string Name

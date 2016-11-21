@@ -110,6 +110,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.Panic = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -139,6 +142,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.textBox8);
             this.panel1.Controls.Add(this.delLib);
             this.panel1.Controls.Add(this.ChLib);
             this.panel1.Controls.Add(this.addLib);
@@ -158,12 +163,12 @@
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(13, 80);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 229);
+            this.panel1.Size = new System.Drawing.Size(233, 254);
             this.panel1.TabIndex = 7;
             // 
             // delLib
             // 
-            this.delLib.Location = new System.Drawing.Point(158, 188);
+            this.delLib.Location = new System.Drawing.Point(152, 221);
             this.delLib.Margin = new System.Windows.Forms.Padding(2);
             this.delLib.Name = "delLib";
             this.delLib.Size = new System.Drawing.Size(63, 28);
@@ -174,7 +179,7 @@
             // 
             // ChLib
             // 
-            this.ChLib.Location = new System.Drawing.Point(85, 188);
+            this.ChLib.Location = new System.Drawing.Point(85, 221);
             this.ChLib.Margin = new System.Windows.Forms.Padding(2);
             this.ChLib.Name = "ChLib";
             this.ChLib.Size = new System.Drawing.Size(63, 28);
@@ -185,7 +190,7 @@
             // 
             // addLib
             // 
-            this.addLib.Location = new System.Drawing.Point(12, 188);
+            this.addLib.Location = new System.Drawing.Point(12, 221);
             this.addLib.Margin = new System.Windows.Forms.Padding(2);
             this.addLib.Name = "addLib";
             this.addLib.Size = new System.Drawing.Size(69, 28);
@@ -424,10 +429,10 @@
             // 
             // DelB
             // 
-            this.DelB.Location = new System.Drawing.Point(122, 230);
+            this.DelB.Location = new System.Drawing.Point(133, 221);
             this.DelB.Margin = new System.Windows.Forms.Padding(2);
             this.DelB.Name = "DelB";
-            this.DelB.Size = new System.Drawing.Size(60, 20);
+            this.DelB.Size = new System.Drawing.Size(60, 28);
             this.DelB.TabIndex = 20;
             this.DelB.Text = "Удалить";
             this.DelB.UseVisualStyleBackColor = true;
@@ -435,10 +440,10 @@
             // 
             // AddB
             // 
-            this.AddB.Location = new System.Drawing.Point(10, 230);
+            this.AddB.Location = new System.Drawing.Point(10, 221);
             this.AddB.Margin = new System.Windows.Forms.Padding(2);
             this.AddB.Name = "AddB";
-            this.AddB.Size = new System.Drawing.Size(68, 20);
+            this.AddB.Size = new System.Drawing.Size(68, 28);
             this.AddB.TabIndex = 18;
             this.AddB.Text = "Добавить";
             this.AddB.UseVisualStyleBackColor = true;
@@ -554,7 +559,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(148, 231);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 20);
+            this.button4.Size = new System.Drawing.Size(45, 20);
             this.button4.TabIndex = 39;
             this.button4.Text = "Долг";
             this.button4.UseVisualStyleBackColor = true;
@@ -734,7 +739,7 @@
             this.panel3.Enabled = false;
             this.panel3.Location = new System.Drawing.Point(691, 80);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(208, 336);
+            this.panel3.Size = new System.Drawing.Size(199, 304);
             this.panel3.TabIndex = 9;
             // 
             // label19
@@ -755,7 +760,7 @@
             // 
             // DelI
             // 
-            this.DelI.Location = new System.Drawing.Point(144, 312);
+            this.DelI.Location = new System.Drawing.Point(132, 230);
             this.DelI.Margin = new System.Windows.Forms.Padding(2);
             this.DelI.Name = "DelI";
             this.DelI.Size = new System.Drawing.Size(60, 20);
@@ -766,7 +771,7 @@
             // 
             // OkI
             // 
-            this.OkI.Location = new System.Drawing.Point(83, 312);
+            this.OkI.Location = new System.Drawing.Point(72, 230);
             this.OkI.Margin = new System.Windows.Forms.Padding(2);
             this.OkI.Name = "OkI";
             this.OkI.Size = new System.Drawing.Size(56, 20);
@@ -777,7 +782,7 @@
             // 
             // AddI
             // 
-            this.AddI.Location = new System.Drawing.Point(12, 312);
+            this.AddI.Location = new System.Drawing.Point(2, 230);
             this.AddI.Margin = new System.Windows.Forms.Padding(2);
             this.AddI.Name = "AddI";
             this.AddI.Size = new System.Drawing.Size(68, 20);
@@ -888,7 +893,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 339);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(150, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(448, 96);
             this.richTextBox1.TabIndex = 30;
             this.richTextBox1.Text = "";
             // 
@@ -896,7 +901,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(12, 442);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 23);
+            this.button1.Size = new System.Drawing.Size(448, 51);
             this.button1.TabIndex = 31;
             this.button1.Text = "Вывести должников";
             this.button1.UseVisualStyleBackColor = true;
@@ -922,20 +927,47 @@
             // 
             // Panic
             // 
-            this.Panic.Location = new System.Drawing.Point(539, 25);
+            this.Panic.Location = new System.Drawing.Point(539, 12);
             this.Panic.Name = "Panic";
-            this.Panic.Size = new System.Drawing.Size(121, 34);
+            this.Panic.Size = new System.Drawing.Size(351, 63);
             this.Panic.TabIndex = 34;
             this.Panic.Text = "Panic button";
             this.Panic.UseVisualStyleBackColor = true;
             this.Panic.Click += new System.EventHandler(this.Panic_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(12, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 23);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Стэк достать";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(12, 185);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 21;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(126, 188);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(47, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Бюджет";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(913, 505);
+            this.ClientSize = new System.Drawing.Size(903, 505);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.Panic);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.button3);
@@ -1052,6 +1084,9 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button Panic;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
 

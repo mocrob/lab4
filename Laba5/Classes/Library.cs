@@ -7,15 +7,15 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
-    class Library
+   public class Library
     {
         public string name;
-        Address lib_adr;
-        int phone;
+        protected Address lib_adr;
+        protected int phone;
 
-        List<Book> books = new List<Book>();  // создаем список объектов книга
-        List<Reader> readers = new List<Reader>();
-        List<Issue> issues = new List<Issue>();
+        protected List<Book> books = new List<Book>();  // создаем список объектов книга
+        protected List<Reader> readers = new List<Reader>();
+        protected List<Issue> issues = new List<Issue>();
 
         public Library()
         {
@@ -40,7 +40,7 @@ namespace Laba5.Classes
             issues = new List<Issue>(l.issues);
         }
 
-        public void add_book(string name, string author, int year, int price, int ou, int quantity, int number)
+        public virtual void add_book(string name, string author, int year, int price, int ou, int quantity, int number)
         {
             books.Add(new Book(number, year, price, quantity, ou, name, author));
         }
@@ -56,7 +56,7 @@ namespace Laba5.Classes
         {
             return books.Find(delegate (Book b1) { return b == b1; });
         }
-        public void delete_book(int number)
+        public virtual void delete_book(int number)
         {
             books.RemoveAll(delegate (Book b) { return b.number == number; });
         }
@@ -153,11 +153,12 @@ namespace Laba5.Classes
                 CIssue.SelectedItem = CIssue.Items[0];
         }
 
-        public void Print(TextBox _name, TextBox _phone, TextBox c, TextBox s, TextBox h, TextBox a)
+        public virtual void Print(TextBox _name, TextBox _phone, TextBox c, TextBox s, TextBox h, TextBox a, TextBox su)
         {
             _name.Text = name;
             _phone.Text = phone.ToString();
             lib_adr.Print(c, s, h, a);
+            su.Text = "";
         }
 
         public void dolzhn(RichTextBox rt)
@@ -221,7 +222,70 @@ namespace Laba5.Classes
 
             return l;
         }
+    }
+
+    public class BookShop : Library
+    {
+        int Summ = 0;
+
+
+        public BookShop(string n, Address adr, int ph, int sum)
+            : base(n, adr, ph)
+        {
+            Summ = sum;
+        }
+
+        public BookShop(BookShop b)
+        {
+            name = b.name;
+            lib_adr = b.lib_adr;
+            phone = b.phone;
+            Summ = b.Summ;
+        }
+
+        public void sellbook(int number, int quan)
+        {
+            if (search_book(number).DecQuantity(quan) >= 1)
+            {
+                Summ += quan * search_book(number).Price;
+
+            }
+        }
+
+        //void buybook(char *name, int price, int quan, int summ, char *author, short year, int number);
+
+        void buybook(Book b, int quan)
+        {
+            if (Summ > ((search_book(b).Price) * quan))
+            {
+                Summ -= (search_book(b).Price) * quan;
+                search_book(b).IncQuantity(quan);
+            }
+        }
+
+        public override void add_book(string name, string author, int year, int price, int quantity, int ou, int number)
+        {
+            if (Summ > quantity * price)
+                Summ -= quantity * price;
+            books.Add(new Book(number, year, price, quantity, ou, name, author));
+
+        }
+
+        public override void delete_book(int number)
+        {
+            Summ += search_book(number).Price * search_book(number).Quan;
+            books.RemoveAll(delegate (Book b) { return b.number == number; });
+        }
+
+        public override void Print(TextBox _name, TextBox _phone, TextBox c, TextBox s, TextBox h, TextBox a, TextBox su)
+        {
+            _name.Text = name + " ";
+            _phone.Text = phone.ToString();
+            lib_adr.Print(c, s, h, a);
+            su.Text = Summ.ToString();
+        }
 
     }
+
 }
 

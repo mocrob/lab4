@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
-    class Book
+    public class Book
     {
         public int number;
 
@@ -16,7 +16,11 @@ namespace Laba5.Classes
         int year;
 
         public int price; /*необходимо будет учитывать, что последние два символа - ком/цент/итд*/
+        public int Price
+        { get { return price; } }
         public int quantity; /*количество*/
+        public int Quan
+        { get { return quantity; } }
         public int inuse; /*количество выданых*/
 
         public Book()
@@ -49,20 +53,20 @@ namespace Laba5.Classes
             price = b.price;
         }
 
-        //public int DecQuantity(int d)
-        //{
-        //    if (quantity > 0)
-        //    {
-        //        quantity -= d;
-        //        return 1;
-        //    }
-        //    else
-        //        return 0;
-        //}
-        //public void IncQuantity(int d)
-        //{
-        //    quantity += d;
-        //}
+        public int DecQuantity(int d)
+        {
+            if (quantity > 0)
+            {
+                quantity -= d;
+                return 1;
+            }
+            else
+                return 0;
+        }
+        public void IncQuantity(int d)
+        {
+            quantity += d;
+        }
 
         public void Print(TextBox _number, TextBox _name, TextBox _author, TextBox _year, TextBox _price,
             TextBox _quantity, TextBox _inuse)

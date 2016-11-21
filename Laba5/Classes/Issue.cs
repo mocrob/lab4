@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
-    class Issue
+    public class Issue
     {
         public int r_number;/*номер билета*/
 
