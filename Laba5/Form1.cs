@@ -423,6 +423,11 @@ namespace StorP
             }
         }
 
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void button3_Click_1(object sender, EventArgs e)
         {
             if (comboBox1.Items.Count == 2)

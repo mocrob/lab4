@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.delLib = new System.Windows.Forms.Button();
             this.ChLib = new System.Windows.Forms.Button();
             this.addLib = new System.Windows.Forms.Button();
@@ -111,8 +113,7 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.Panic = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -165,6 +166,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 254);
             this.panel1.TabIndex = 7;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(126, 188);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(47, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "Бюджет";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(12, 185);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 21;
             // 
             // delLib
             // 
@@ -945,21 +962,15 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
-            // textBox8
+            // button6
             // 
-            this.textBox8.Location = new System.Drawing.Point(12, 185);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 21;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(126, 188);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(47, 13);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "Бюджет";
+            this.button6.Location = new System.Drawing.Point(691, 390);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(200, 103);
+            this.button6.TabIndex = 36;
+            this.button6.Text = "Операторы";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // Form1
             // 
@@ -967,6 +978,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(903, 505);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.Panic);
             this.Controls.Add(this.richTextBox2);
@@ -1087,6 +1099,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button6;
     }
 }
 

@@ -200,6 +200,51 @@ namespace Laba5.Classes
                 //delete_issue(num);
             }
         }
+        /******************************************************/
+        public static Library operator +(Library _l1, Library _l2)
+        {
+            Library l = new Library("Plus", new Address(), 1488);
+
+            foreach (Book b in _l1.books)
+                l.add_book(b);
+            foreach (Book b in _l2.books)
+                if (!l.books.Contains(b))
+                    l.add_book(b);
+
+            foreach (Issue b in _l1.issues)
+                l.add_issue(b);
+            foreach (Issue b in _l2.issues)
+                if (!l.issues.Contains(b))
+                    l.add_issue(b);
+
+            foreach (Reader b in _l1.readers)
+                l.add_reader(b);
+            foreach (Reader b in _l2.readers)
+                if (!l.readers.Contains(b))
+                    l.add_reader(b);
+
+            return l;
+        }
+
+        public static Library operator -(Library _l1, Library _l2)
+        {
+            Library l = new Library("Minus", new Address(), 289);
+
+            foreach (Book c in _l1.books)
+                if (!_l2.books.Contains(c))
+                    l.books.Add(c);
+
+            foreach (Reader c in _l1.readers)
+                if (!_l2.readers.Contains(c))
+                    l.readers.Add(c);
+
+            foreach (Issue c in _l1.issues)
+                if (!_l2.issues.Contains(c))
+                    l.issues.Add(c);
+
+            return l;
+        }
+        /******************************************************/
 
         public Library Merge(Library lib)
         {

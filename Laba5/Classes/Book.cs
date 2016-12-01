@@ -82,11 +82,10 @@ namespace Laba5.Classes
 
         public override bool Equals(object obj)
         {
-            Book b = obj as Book;
-            if (b != null)
+            Book r = obj as Book;
+            if (r != null)
             {
-                if (number == b.number)
-                    return true;
+                return r.number == number && r.name == name;
             }
             return base.Equals(obj);
         }

@@ -54,5 +54,15 @@ namespace Laba5.Classes
             ph.Text = phone.ToString();
         }
 
+        public override bool Equals(object obj)
+        {
+            Reader r = obj as Reader;
+            if (r != null)
+            {
+                return r.name == name && r.number == number;
+            }
+            return base.Equals(obj);
+        }
+
     }
 }

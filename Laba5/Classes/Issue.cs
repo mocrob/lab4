@@ -47,5 +47,15 @@ namespace Laba5.Classes
         {
             return DateTime.Today.Subtract(in_date);
         }
+
+        public override bool Equals(object obj)
+        {
+            Issue r = obj as Issue;
+            if (r != null)
+            {
+                return r.b_number == b_number && r.r_number == r_number;
+            }
+            return base.Equals(obj);
+        }
     }
 }
