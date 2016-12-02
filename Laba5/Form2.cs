@@ -29,21 +29,7 @@ namespace Laba5
         private void Form2_Load(object sender, EventArgs e)
         {
 
-            CurLib = new Library();
-            NewLib = new Library("Im.Lenina", new Address("Novosib", "Lenina", 2, 1), 228);
-            CurLib.add_book("Wtar Sars", "J.J. Ab", 2015, 200, 1, 1);
-
-            libraries.Add(CurLib);
-            libraries.Add(NewLib);
-            CurLib.add_reader("Oleg", new Address("lsk", "Lenina", 3, 1), 245);
-
-
-            libStack = new CSt<Library>(CurLib);
-
-
-
-
-            RefillCombo();
+           
         }
 
 
@@ -90,6 +76,17 @@ namespace Laba5
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            //libraries.Add(new Library(
+            //    textBox1.Text,
+            //    new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox5.Text),
+            //        Convert.ToInt16(textBox6.Text)), Convert.ToInt16(textBox2.Text)));
+            //comboBox1.Items.Add(textBox1.Text);
+            //comboBox1.SelectedItem = textBox1.Text;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
             StLib = libStack.pop();
             if (StLib != null)
             {
@@ -108,16 +105,6 @@ namespace Laba5
                 button3.Enabled = false;
                 button2.Enabled = false;
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            libraries.Add(new Library(
-                textBox1.Text,
-                new Address(textBox3.Text, textBox4.Text, Convert.ToInt16(textBox5.Text),
-                    Convert.ToInt16(textBox6.Text)), Convert.ToInt16(textBox2.Text)));
-            comboBox1.Items.Add(textBox1.Text);
-            comboBox1.SelectedItem = textBox1.Text;
 
         }
 
@@ -136,6 +123,25 @@ namespace Laba5
         private void button5_Click(object sender, EventArgs e)
         {
             libStack = libStack.push(newl);
+        }
+
+        private void Form2_Load_1(object sender, EventArgs e)
+        {
+            CurLib = new Library();
+            NewLib = new Library("Im.Lenina", new Address("Novosib", "Lenina", 2, 1), 228);
+            CurLib.add_book("Wtar Sars", "J.J. Ab", 2015, 200, 1, 1);
+
+            libraries.Add(CurLib);
+            libraries.Add(NewLib);
+            CurLib.add_reader("Oleg", new Address("lsk", "Lenina", 3, 1), 245);
+
+
+            libStack = new CSt<Library>(CurLib);
+
+
+
+
+            RefillCombo();
         }
     }
 }

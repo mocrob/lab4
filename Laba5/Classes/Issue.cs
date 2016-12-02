@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
+    [Serializable]
     public class Issue
     {
         public int r_number;/*номер билета*/

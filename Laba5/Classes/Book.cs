@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
+    [Serializable]
     public class Book
     {
         public int number;

@@ -496,6 +496,7 @@
             this.Enabled = false;
             this.Name = "Form2";
             this.Text = "операторы";
+            this.Load += new System.EventHandler(this.Form2_Load_1);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);

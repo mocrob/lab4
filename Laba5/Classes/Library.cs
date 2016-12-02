@@ -7,7 +7,8 @@ using System.Windows.Forms;
 
 namespace Laba5.Classes
 {
-   public class Library
+    [Serializable]
+    public class Library
     {
         public string name;
         protected Address lib_adr;
