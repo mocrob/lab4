@@ -8,7 +8,7 @@ namespace StorP
 {
     static class Program
     {
-        
+        public static Form1 arm;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -17,7 +17,7 @@ namespace StorP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(arm = new Form1());
         }
     }
 }

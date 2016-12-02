@@ -48,6 +48,11 @@ namespace Laba5.Classes
         {
             books.Add(b);
         }
+        public void add_book(string author, string name, int year, int price, int quantity, int number)
+        {
+            books.Add(new Book(number, year, price, quantity, 0, name, author));
+        }
+
         public Book search_book(int number)
         {
             return books.Find(delegate (Book b) { return b.number == number; });
@@ -69,6 +74,11 @@ namespace Laba5.Classes
         {
             readers.Add(r);
         }
+        public void add_reader(string name, Address adr, int phone)
+        {
+            readers.Add(new Reader(readers.Count + 1, adr, phone, name));
+        }
+
         public Reader search_reader(int number)
         {
             return readers.Find(delegate (Reader b) { return b.number == number; });
@@ -159,6 +169,14 @@ namespace Laba5.Classes
             _phone.Text = phone.ToString();
             lib_adr.Print(c, s, h, a);
             su.Text = "";
+        }
+
+        public virtual void Print(TextBox _name, TextBox b, TextBox r, TextBox i)
+        {
+            _name.Text = name;
+            b.Text = books.Count().ToString();
+            r.Text = readers.Count().ToString();
+            i.Text = issues.Count().ToString();
         }
 
         public void dolzhn(RichTextBox rt)

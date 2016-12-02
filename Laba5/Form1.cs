@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Laba5.Classes;
+using Laba5;
 
 namespace StorP
 {
     public partial class Form1 : Form
     {
         List<Library> libraries = new List<Library>();
-        LibStack libStack;
+        // LibStack libStack;
+        CSt<Library> libStack;
         Library CurLib, NewLib;
 
         public Form1()
@@ -34,7 +36,8 @@ namespace StorP
             libraries.Add(NewLib);
             // Заполнить ещё библиотеки
 
-            libStack = new LibStack(CurLib);
+            //libStack = new LibStack(CurLib);
+            libStack = new CSt<Library>(CurLib);
 
             CurLib = new BookShop("BookyShop", new Address("Best City", "New Street", 10, 64), 908, 100);
             libraries.Add(CurLib);
@@ -425,6 +428,9 @@ namespace StorP
 
         private void button6_Click_1(object sender, EventArgs e)
         {
+            Form2 form = new Form2();
+            form.Enabled = true;
+            form.Show();
 
         }
 

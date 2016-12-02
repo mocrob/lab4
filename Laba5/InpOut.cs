@@ -17,12 +17,12 @@ namespace Laba5
     [Serializable]
     public class Save
     {
-        public CStack<Library> data;
+        public CSt<Library> data;
 
         [NonSerialized]
         public static string ext = ".ls";
 
-        public void SaveItem(string name, CStack<Library> _data)
+        public void SaveItem(string name, CSt<Library> _data)
         {
             data = _data;
             Stream stream = null;
@@ -35,7 +35,7 @@ namespace Laba5
             }
         }
 
-        public CStack<Library> LoadItem(string name)
+        public CSt<Library> LoadItem(string name)
         {
             try
             {
